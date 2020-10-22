@@ -14,3 +14,5 @@ class MovieListView(ListAPIView):
     permission_classes = (permissions.AllowAny, )
 
 
+
+
