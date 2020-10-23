@@ -1,18 +1,15 @@
-import React,{ useEffect, useState} from 'react'
-import {MoviesContext} from  '../MoviesContext'
-import axios from 'axios'
+import React,{ useEffect, useContext} from 'react'
+import {MoviesContext} from  '../MoviesContext.js'
 
 const Movies = () => {
-    const {movies, setMovies, getMovies} = useContext(MoviesContext);
+    const {movies, getMovies} = useContext(MoviesContext);
     
     useEffect(() => {
-
+        getMovies();
         
-        getMovies()
-        console.log(movies)
     }, []);
 
-
+    console.log(movies)
     return (
         <div>
             

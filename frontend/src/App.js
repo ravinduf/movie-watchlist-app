@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 
-import {MoviesContextProvider} from './MoviesContext'
+import {MoviesContextProvider} from './MoviesContext.js'
 import Layout from './Layout'
-
+import Movies from './components/Movies'
 function App() {
   return (
-    
-      <Layout>
-      
-      </Layout>
-    
+      <MoviesContextProvider>
+        <Layout>
+          <Movies/>
+        </Layout>
+      </MoviesContextProvider>
     
   );
 }
