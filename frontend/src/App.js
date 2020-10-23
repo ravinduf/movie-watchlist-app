@@ -6,11 +6,11 @@ import Layout from './Layout'
 
 function App() {
   return (
-    <MoviesContextProvider>
+    
       <Layout>
       
       </Layout>
-    </MoviesContextProvider>
+    
     
   );
 }
