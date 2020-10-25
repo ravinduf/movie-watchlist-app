@@ -10,7 +10,7 @@ const Navbar = () => {
             <>
                 <Nav  className="nav d-flex justify-content-around bg-dark mt-5 p-3">
                     <Nav.Item>
-                        <Link className="link active" to="/">All</Link>
+                        <Link className="link active" to="/" onClick={handleActive()} >All</Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Link className="link" to="/completed-movie-list">Completed</Link>
