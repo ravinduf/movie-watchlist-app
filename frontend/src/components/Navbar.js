@@ -4,17 +4,19 @@ import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    
+
     return (
             <>
-                <Nav  className="d-flex justify-content-around bg-dark mt-5">
+                <Nav  className="nav d-flex justify-content-around bg-dark mt-5 p-3">
                     <Nav.Item>
-                        <Link to="/">All</Link>
+                        <Link className="link active" to="/">All</Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Link to="/completed-movie-list">Completed</Link>
+                        <Link className="link" to="/completed-movie-list">Completed</Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Link to="/yet-to-watch-list">Not completed</Link>
+                        <Link className="link" to="/yet-to-watch-list">Not completed</Link>
                     </Nav.Item>
                 
                 </Nav>
