@@ -11,10 +11,10 @@ const Navbar = () => {
                         <Link to="/">All</Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Link to="">Completed</Link>
+                        <Link to="/completed-movie-list">Completed</Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Link to="">Not completed</Link>
+                        <Link to="/yet-to-watch-list">Not completed</Link>
                     </Nav.Item>
                 
                 </Nav>

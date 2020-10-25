@@ -4,7 +4,7 @@ import React from 'react'
 const CompletedMovies = () => {
     return (
         <div>
-            
+            <h1>completed</h1>
         </div>
     )
 }
