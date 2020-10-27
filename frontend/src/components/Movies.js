@@ -7,10 +7,10 @@ const Movies = ({movies}) => {
 
     console.log(movies)
 
-    
+
     return (
-        <div>
-            Movies
+        <div className="d-flex flex-row flex-wrap justify-content-around ">
+           
             {movies.map((movie, index) => (
                 <SingleMovie movie={movie} key={index} />
 
