@@ -7,7 +7,7 @@ const CompletedMovies = () => {
     return (
         <div>
             <h1>completed</h1>
-            <Movies />
+            {/* <Movies /> */}
         </div>
     )
 }

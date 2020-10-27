@@ -7,7 +7,7 @@ const YetToWatch = () => {
     return (
         <div>
             <h1>Yet-to-watch</h1>
-            <Movies />
+            {/* <Movies /> */}
         </div>
     )
 }
