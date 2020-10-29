@@ -5,13 +5,14 @@ import { Card } from 'react-bootstrap'
 const SingleMovie = ({movie}) => {
     console.log(movie)
     return (
-        <Card style={{ width: '18rem', marginTop: '20px' }}>
+        <Card style={{ width: '16rem', marginTop: '20px' }}>
             <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
             <Card.Body>
-                <Card.Title>{movie.name}</Card.Title>
+                <Card.Title><h2>{movie.name}</h2></Card.Title>
                 <Card.Text>
-                Year released: {movie.year_released}<br/>
-                Status: &nbsp;{movie.status ? 'Watched': 'Not yet watched' }
+                <h4>Year released: {movie.year_released}<br/></h4>
+                <h4>Status: &nbsp;{movie.status ? 'Watched': 'Not yet watched' }</h4>
+                
                 </Card.Text>
                 {/* <Button variant="primary">Go somewhere</Button> */}
             </Card.Body>
@@ -20,8 +21,9 @@ const SingleMovie = ({movie}) => {
 }
 
 const imgStyle = {
-    width: '100%',
-    height: '60vh'
+    width: '95%',
+    height: '60vh',
+    margin: '4px auto'
 }
 
 

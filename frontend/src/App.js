@@ -8,6 +8,7 @@ import Layout from './Layout'
 import Home from './pages/Home'
 import CompletedMovies from './pages/CompletedMovies'
 import YetToWatch from './pages/YetToWatch'
+import AddMovie from './pages/AddMovie'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/completed-movie-list" component={CompletedMovies} />
               <Route exact path="/yet-to-watch-list" component={YetToWatch} />
+              <Route exact path="/add-movie" component={AddMovie} />
             </Switch>
           
           </Layout>
