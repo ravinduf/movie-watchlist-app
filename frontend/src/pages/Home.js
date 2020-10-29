@@ -14,8 +14,6 @@ const Home = () => {
     
     return (
         <div>
-            <h1>Home</h1>
-            
             <Movies movies={movies}  />
         </div>
     )
