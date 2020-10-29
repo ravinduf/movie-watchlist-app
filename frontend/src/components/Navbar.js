@@ -23,6 +23,9 @@ const Navbar = () => {
                     <Nav.Item>
                         <Link className={activeState.id === 3 ? 'link active': 'link'} to="/yet-to-watch-list" onClick={ () => {handleNavState(3)} }>Not completed</Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Link className={activeState.id === 4 ? 'link active': 'link'} to="/add-movie" onClick={ () => {handleNavState(4)} }>Add Movie</Link>
+                    </Nav.Item>
                 
                 </Nav>
             
