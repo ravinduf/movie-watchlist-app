@@ -9,12 +9,13 @@ const SingleMovie = ({movie}) => {
             <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
             <Card.Body>
                 <Card.Title><h2>{movie.name}</h2></Card.Title>
-                <Card.Text>
-                <h4>Year released: {movie.year_released}<br/></h4>
-                <h4>Status: &nbsp;{movie.status ? 'Watched': 'Not yet watched' }</h4>
                 
-                </Card.Text>
-                {/* <Button variant="primary">Go somewhere</Button> */}
+                <h4>Year released: {movie.year_released}<br/></h4>
+                
+                <h4>Status: &nbsp;{movie.watched ? 'Watched': 'Not yet watched' }</h4>
+                
+                
+                
             </Card.Body>
         </Card>
     )
