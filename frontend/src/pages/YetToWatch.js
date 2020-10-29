@@ -1,13 +1,21 @@
 //show movies yet to watch
-import React from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 
 import Movies from '../components/Movies';
+import { MoviesContext } from '../MoviesContext'
 
 const YetToWatch = () => {
+    const [notCompletedMovies, setNotCompletedMovies] = useState([])
+
+    const { movies } = useContext(MoviesContext)
+
+    useEffect(() => {
+        const tempMovies = movies.filter(movie => !movie.watched )
+        setNotCompletedMovies(tempMovies)
+    }, [])
     return (
         <div>
-            <h1>Yet-to-watch</h1>
-            {/* <Movies /> */}
+            <Movies movies={notCompletedMovies} />
         </div>
     )
 }
