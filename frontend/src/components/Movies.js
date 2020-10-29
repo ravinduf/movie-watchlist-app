@@ -1,5 +1,4 @@
-import React,{ useEffect, useContext} from 'react'
-import {MoviesContext} from  '../MoviesContext.js'
+import React from 'react'
 
 import SingleMovie from './SingleMovie'
 
