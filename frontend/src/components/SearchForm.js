@@ -8,10 +8,25 @@ const SearchForm = () => {
         year: ''
     });
 
-    
+
     return (
         <div>
-            
+            <Form className="mb-4">
+                <Form.Row>
+                    <Form.Group as={Col} >
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control  
+                        name="title" type="text" />
+                    </Form.Group>
+
+                    <Form.Group as={Col} >
+                        <Form.Label>Year</Form.Label>
+                        <Form.Control  
+                        name="year" type="text" />
+                    </Form.Group>
+
+                </Form.Row>
+            </Form >
         </div>
     )
 }
