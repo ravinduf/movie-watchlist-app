@@ -33,9 +33,9 @@ const SearchForm = () => {
     const movieInfo = (
         <Container className="m-4">
             <Row >
-                <Col><img src={movie.Poster} alt="" /></Col>
+                <Col><img src={movie.Poster} alt="Not Found" /></Col>
                 <Col>
-                <h2 className="display-4">{params.title}</h2>
+                <h2 className="display-4">{movie.Title}</h2>
                 <h4 className="display-5">{movie.Plot}</h4>
                 </Col>
             </Row>
