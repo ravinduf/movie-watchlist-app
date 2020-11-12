@@ -8,6 +8,8 @@ const SearchForm = () => {
         title: '',
         year: ''
     });
+
+    
     
     const handleChange = (e) => {
         setParams(params => (
@@ -16,9 +18,13 @@ const SearchForm = () => {
         console.log(params)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+    }
     return (
         <div>
-            <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} >
+            <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmit}>
                 <Form.Control  
                 name="title" type="text" 
                 placeholder="Title" 
