@@ -9,7 +9,7 @@ const SearchForm = () => {
         year: ''
     });
 
-    
+    const [movie, setMovie] = useState([]);
     
     const handleChange = (e) => {
         setParams(params => (
@@ -18,13 +18,15 @@ const SearchForm = () => {
         console.log(params)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmitForm = async (e) => {
         e.preventDefault()
-        
+        const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
+        setMovie(tempInfo)
     }
+    
     return (
         <div>
-            <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmit}>
+            <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmitForm}>
                 <Form.Control  
                 name="title" type="text" 
                 placeholder="Title" 
