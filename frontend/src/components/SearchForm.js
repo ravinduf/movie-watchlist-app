@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import { Form, Col, Button } from 'react-bootstrap'
+import { Form, Col, Button, Container, Row } from 'react-bootstrap'
 
 const SearchForm = () => {
 
@@ -9,7 +9,9 @@ const SearchForm = () => {
         year: ''
     });
 
+   
     const [movie, setMovie] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     const handleChange = (e) => {
         setParams(params => (
@@ -21,9 +23,33 @@ const SearchForm = () => {
     const handleSubmitForm = async (e) => {
         e.preventDefault()
         const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
-        setMovie(tempInfo)
+        setMovie(tempInfo.data)
+        setLoading(false)
+        console.log(movie)
+       
     }
+
     
+    const movieInfo = (
+        <Container className="m-4">
+            <Row >
+                <Col><img src={movie.Poster} alt="" /></Col>
+                <Col>
+                <h2 className="display-4">{params.title}</h2>
+                <h4 className="display-5">{movie.Plot}</h4>
+                </Col>
+            </Row>
+        </Container>
+    )
+
+    const movieInfoNotFound = (
+        <Container className="mt-4">
+            <h1>Enter the title and the year correctly</h1>
+        </Container>
+    )
+
+      
+
     return (
         <div>
             <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmitForm}>
@@ -43,6 +69,9 @@ const SearchForm = () => {
                 
                 <Button type="submit">Submit</Button>
             </Form >
+
+            {loading ? movieInfoNotFound : movieInfo}
+
         </div>
     )
 }
