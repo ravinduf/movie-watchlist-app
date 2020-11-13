@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Form, Col, Button, Container, Row } from 'react-bootstrap'
+import SingleMovieInfo from './SingleMovieInfo'
 
 const SearchForm = () => {
 
@@ -36,6 +37,7 @@ const SearchForm = () => {
 
     }
 
+
     return (
         <div>
             <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmitForm}>
@@ -59,16 +61,7 @@ const SearchForm = () => {
             {loading ?  <Container className="mt-4" style={{width: '90%'}}>
                             <h1>Enter the title and the year correctly</h1>
                         </Container> : 
-                        <Container className="m-4" style={{width: '90%'}}>
-                            <Row >
-                                <Col><img src={movie.Poster} alt="Not Found" /></Col>
-                                <Col>
-                                <h2 className="display-4">{movie.Title}</h2>
-                                <h4 className="display-5">{movie.Plot}</h4>
-                        
-                                </Col>
-                            </Row>
-                        </Container>
+                        <SingleMovieInfo movie={movie} />
                         }
             
         </div>
