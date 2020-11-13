@@ -27,7 +27,7 @@ const SearchForm = () => {
             setMovie(tempInfo.data)
 
             setLoading(() => (
-                tempInfo.data.Response == 'True' ? false : true 
+                tempInfo.data.Response === 'True' ? false : true 
             ))
 
         }
