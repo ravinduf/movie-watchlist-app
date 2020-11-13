@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Form, Col, Button, Container, Row } from 'react-bootstrap'
 
@@ -17,38 +17,24 @@ const SearchForm = () => {
         setParams(params => (
             {...params, [e.target.name]: e.target.value}
         ))
-        console.log(params)
     }
 
     const handleSubmitForm = async (e) => {
         e.preventDefault()
-        const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
-        setMovie(tempInfo.data)
-        setLoading(false)
-        console.log(movie)
-       
+        try{
+            const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
+            setMovie(tempInfo.data)
+
+            setLoading(() => (
+                tempInfo.data.Response == 'True' ? false : true 
+            ))
+
+        }
+        catch(err){
+            console.log(err)
+        }
+
     }
-
-    
-    const movieInfo = (
-        <Container className="m-4">
-            <Row >
-                <Col><img src={movie.Poster} alt="Not Found" /></Col>
-                <Col>
-                <h2 className="display-4">{movie.Title}</h2>
-                <h4 className="display-5">{movie.Plot}</h4>
-                </Col>
-            </Row>
-        </Container>
-    )
-
-    const movieInfoNotFound = (
-        <Container className="mt-4">
-            <h1>Enter the title and the year correctly</h1>
-        </Container>
-    )
-
-      
 
     return (
         <div>
@@ -70,8 +56,21 @@ const SearchForm = () => {
                 <Button type="submit">Submit</Button>
             </Form >
 
-            {loading ? movieInfoNotFound : movieInfo}
-
+            {loading ?  <Container className="mt-4">
+                            <h1>Enter the title and the year correctly</h1>
+                        </Container> : 
+                        <Container className="m-4">
+                            <Row >
+                                <Col><img src={movie.Poster} alt="Not Found" /></Col>
+                                <Col>
+                                <h2 className="display-4">{movie.Title}</h2>
+                                <h4 className="display-5">{movie.Plot}</h4>
+                        
+                                </Col>
+                            </Row>
+                        </Container>
+                        }
+            
         </div>
     )
 }
