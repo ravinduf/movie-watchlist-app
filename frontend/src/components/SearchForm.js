@@ -56,10 +56,10 @@ const SearchForm = () => {
                 <Button type="submit">Submit</Button>
             </Form >
 
-            {loading ?  <Container className="mt-4">
+            {loading ?  <Container className="mt-4" style={{width: '90%'}}>
                             <h1>Enter the title and the year correctly</h1>
                         </Container> : 
-                        <Container className="m-4">
+                        <Container className="m-4" style={{width: '90%'}}>
                             <Row >
                                 <Col><img src={movie.Poster} alt="Not Found" /></Col>
                                 <Col>
