@@ -16,6 +16,7 @@ const SingleMovieInfo = ({movie}) => {
                         <h4 key={index} style={{paddingLeft: '40px'}} className="display-5">{rating.Source}: &nbsp;{rating.Value}</h4>
                     ))}
                     <h4>Year: &nbsp; {movie.Year}</h4>
+                    <h4>Genre: &nbsp; {movie.Genre}</h4>
                     <h4>Director: &nbsp; {movie.Director} </h4>
                     <h4>Writer: &nbsp; {movie.Writer}</h4>
                     <h4>Actors: &nbsp; {movie.Actors}</h4>
