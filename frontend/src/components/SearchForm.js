@@ -37,6 +37,11 @@ const SearchForm = () => {
 
     }
 
+    const IncorrectMovieInfo = (
+        <Container className="mt-4" style={{width: '90%'}}>
+            <h1>Enter the title and the year correctly</h1>
+        </Container>
+    )
 
     return (
         <div>
@@ -58,11 +63,7 @@ const SearchForm = () => {
                 <Button type="submit">Submit</Button>
             </Form >
 
-            {loading ?  <Container className="mt-4" style={{width: '90%'}}>
-                            <h1>Enter the title and the year correctly</h1>
-                        </Container> : 
-                        <SingleMovieInfo movie={movie} />
-                        }
+            {loading ?  IncorrectMovieInfo : <SingleMovieInfo movie={movie} /> }
             
         </div>
     )
