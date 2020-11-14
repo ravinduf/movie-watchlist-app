@@ -1,8 +1,30 @@
 import React from 'react'
-import { Container , Row, Col } from 'react-bootstrap'
+import { Container , Row, Col , Button} from 'react-bootstrap'
+import axios from 'axios'
 
 const SingleMovieInfo = ({movie}) => {
-    console.log(movie)
+   
+    const handleClick = async () => {
+        let form_data = new FormData();
+
+        form_data.append('name', movie.Title)
+        form_data.append('year_released', movie.Year)
+        form_data.append('poster', movie.Poster)
+
+        try{
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/movielist/add-movie/`, form_data, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+            // console.log(data)
+        }
+        catch(err){
+            console.log(err)
+        }
+        
+    }
+
     return (
         <Container className="m-4" style={{width: '90%'}}>
             <Row >
@@ -21,7 +43,8 @@ const SingleMovieInfo = ({movie}) => {
                     <h4>Writer: &nbsp; {movie.Writer}</h4>
                     <h4>Actors: &nbsp; {movie.Actors}</h4>
                     <h4>Runtime: &nbsp; {movie.Runtime}</h4>
-
+                    <br/>
+                    <Button onClick={handleClick}>Add Movie</Button>
                 </Col>
             </Row>
         </Container>
