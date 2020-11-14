@@ -5,5 +5,5 @@ class MoviesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movies
-        fields = '__all__'
+        exclude = ['slug',]
         lookup_field = 'slug'
