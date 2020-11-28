@@ -26,7 +26,7 @@ const SingleMovieInfo = ({movie}) => {
     }
 
     return (
-        <Container className="m-4" style={{width: '90%'}}>
+        <Container className="m-4" style={{width: '90%', color: 'white'}}>
             <Row >
                 <Col><img src={movie.Poster} alt="Not Found" /></Col>
                 <Col>
