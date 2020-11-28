@@ -1,19 +1,21 @@
 //Simple navbar 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { MoviesContext } from '../MoviesContext.js'
 import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     
-    const [ activeState, setActiveState ] = useState({id : 1})
+    // const [ activeState, setActiveState ] = useState({id : 1})
 
-    const handleNavState = (id) => {
-        setActiveState({id: id})
-    }
+    // const handleNavState = (id) => {
+    //     setActiveState({id: id})
+    // }
+    const {activeState, handleNavState } = useContext(MoviesContext)
 
     return (
             <>
-                <Nav  className="nav d-flex justify-content-around bg-dark mt-5 p-3">
+                <Nav  className="nav d-flex justify-content-around nav mt-5 p-3">
                     <Nav.Item>
                         <Link className={activeState.id === 1 ? 'link active': 'link'} to="/"  onClick={ () => {handleNavState(1)} }>All</Link>
                     </Nav.Item>
