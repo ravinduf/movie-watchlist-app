@@ -38,7 +38,7 @@ const SearchForm = () => {
     }
 
     const IncorrectMovieInfo = (
-        <Container className="mt-4" style={{width: '90%'}}>
+        <Container className="mt-4" style={{width: '90%', color: 'white'}}>
             <h1>Enter the title and the year correctly</h1>
         </Container>
     )

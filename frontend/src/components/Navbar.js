@@ -6,11 +6,6 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     
-    // const [ activeState, setActiveState ] = useState({id : 1})
-
-    // const handleNavState = (id) => {
-    //     setActiveState({id: id})
-    // }
     const {activeState, handleNavState } = useContext(MoviesContext)
 
     return (
