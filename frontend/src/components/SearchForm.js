@@ -60,7 +60,7 @@ const SearchForm = () => {
                 onChange={handleChange}
                 style={{width: '20%'}}/>
                 
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="btn-secondary">Find Movie</Button>
             </Form >
 
             {loading ?  IncorrectMovieInfo : <SingleMovieInfo movie={movie} /> }
