@@ -12,7 +12,7 @@ const YetToWatch = () => {
     useEffect(() => {
         const tempMovies = movies.filter(movie => !movie.watched )
         setNotCompletedMovies(tempMovies)
-    }, [])
+    }, [movies])
     return (
         <div>
             <Movies movies={notCompletedMovies} />

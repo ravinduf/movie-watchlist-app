@@ -1,5 +1,5 @@
 //Simple navbar 
-import React, { useState, useContext } from 'react'
+import React, {  useContext } from 'react'
 import { MoviesContext } from '../MoviesContext.js'
 import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'

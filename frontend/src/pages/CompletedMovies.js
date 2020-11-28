@@ -5,16 +5,17 @@ import Movies from '../components/Movies';
 import { MoviesContext } from '../MoviesContext';
 
 const CompletedMovies = () => {
+    const { movies } = useContext(MoviesContext)
     const [completedMovies, setCompletedMovies] = useState([])
 
-    const { movies } = useContext(MoviesContext)
+    
 
     useEffect(() => {
         const tempMovies = movies.filter(movie => movie.watched )
         console.log(tempMovies)
         setCompletedMovies(tempMovies)
 
-    },[])
+    },[movies])
 
     return (
         <div>

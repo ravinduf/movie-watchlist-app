@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { Form, Col, Button, Container, Row } from 'react-bootstrap'
+import { Form, Button, Container} from 'react-bootstrap'
 import SingleMovieInfo from './SingleMovieInfo'
 
 const SearchForm = () => {
