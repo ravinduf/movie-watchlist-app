@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container , Row, Col , Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const SingleMovieInfo = ({movie}) => {
@@ -12,12 +13,12 @@ const SingleMovieInfo = ({movie}) => {
         form_data.append('poster', movie.Poster)
 
         try{
-            await axios.post(`${process.env.REACT_APP_API_URL}/api/movielist/add-movie/`, form_data, {
+            const data = await axios.post(`${process.env.REACT_APP_API_URL}/api/movielist/add-movie/`, form_data, {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             })
-            // console.log(data)
+            
         }
         catch(err){
             console.log(err)
@@ -44,7 +45,7 @@ const SingleMovieInfo = ({movie}) => {
                     <h4>Actors: &nbsp; {movie.Actors}</h4>
                     <h4>Runtime: &nbsp; {movie.Runtime}</h4>
                     <br/>
-                    <Button onClick={handleClick}>Add Movie</Button>
+                    <Button onClick={handleClick} href="/">Add Movie</Button>
                 </Col>
             </Row>
         </Container>
