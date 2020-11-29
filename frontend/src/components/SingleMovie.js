@@ -3,7 +3,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 const SingleMovie = ({movie}) => {
-    console.log(movie)
+    
     return (
         <Card style={{ width: '16rem', marginTop: '20px' }}>
             <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
