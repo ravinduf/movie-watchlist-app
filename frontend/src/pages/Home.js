@@ -7,10 +7,7 @@ import Movies from '../components/Movies';
 const Home = () => {
     const {movies, getMovies} = useContext(MoviesContext)
 
-    useEffect(() => {
-        getMovies();
-    }, [getMovies]);
-
+    useEffect(getMovies, []);
     
     return (
         <div>
