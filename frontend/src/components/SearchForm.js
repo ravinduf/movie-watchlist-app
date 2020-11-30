@@ -12,7 +12,10 @@ const SearchForm = () => {
 
    
     const [movie, setMovie] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [status, setStatus] = useState({
+        loading: true,
+        msg: 'Enter title and year correctly'
+    });
     
     const handleChange = (e) => {
         setParams(params => (
@@ -26,9 +29,11 @@ const SearchForm = () => {
             const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
             setMovie(tempInfo.data)
 
-            setLoading(() => (
-                tempInfo.data.Response === 'True' ? false : true 
-            ))
+            tempInfo.data.Response === 'True'? 
+                    setStatus(status => ({...status, loading: false})) : 
+                    setStatus(status => ({...status, msg: 'incorrect title'}))
+            
+            
 
         }
         catch(err){
@@ -36,14 +41,15 @@ const SearchForm = () => {
         }
 
     }
-
-    const IncorrectMovieInfo = (
+    
+    const formStatus = (
         <Container className="mt-4" style={{width: '90%', color: 'white'}}>
-            <h1>Enter the title and the year correctly</h1>
+            <h1>{status.msg}</h1>
         </Container>
     )
 
     return (
+        
         <div>
             <Form className="mt-4 d-flex flex-row justify-content-around" style={{width: "70%"}} onSubmit={handleSubmitForm}>
                 <Form.Control  
@@ -63,7 +69,7 @@ const SearchForm = () => {
                 <Button type="submit" className="btn-secondary">Find Movie</Button>
             </Form >
 
-            {loading ?  IncorrectMovieInfo : <SingleMovieInfo movie={movie} /> }
+            {status.loading ?  formStatus : <SingleMovieInfo movie={movie} /> }
             
         </div>
     )
