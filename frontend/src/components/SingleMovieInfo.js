@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container , Row, Col , Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 const SingleMovieInfo = ({movie}) => {
    
+    const [postStatus, setPostStatus] = useState(false)
+
     const handleClick = async () => {
         let form_data = new FormData();
 
@@ -18,12 +20,22 @@ const SingleMovieInfo = ({movie}) => {
                     'content-type': 'multipart/form-data'
                 }
             })
-            
+            console.log(data)
+            if (data.status === 201) {
+               setPostStatus(true)
+            }
         }
         catch(err){
             console.log(err)
         }
         
+    }
+
+    const handleRedirect = () => {
+        if (postStatus) {
+            return (<Redirect to="/"/>)
+        }
+        return null
     }
 
     return (
@@ -45,7 +57,8 @@ const SingleMovieInfo = ({movie}) => {
                     <h4>Actors: &nbsp; {movie.Actors}</h4>
                     <h4>Runtime: &nbsp; {movie.Runtime}</h4>
                     <br/>
-                    <Button onClick={handleClick} href="/">Add Movie</Button>
+                    <Button onClick={handleClick} >Add Movie</Button>
+                    {handleRedirect()}
                 </Col>
             </Row>
         </Container>
