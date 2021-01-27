@@ -23,8 +23,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/movielist/', include('movielist.urls')),
-    url(r'^api/movielist/', include('djoser.urls')),
-    url(r'^api/movielist/', include('djoser.urls.authtoken')),
+    url(r'^api/auth/', include('djoser.urls')),
+    url(r'^api/auth/', include('djoser.urls.authtoken')),
     path('', TemplateView.as_view(template_name='index.html'))
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

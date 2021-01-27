@@ -12,6 +12,7 @@ from pathlib import Path
 import urllib
 from .models import Movies
 from .serializers import MoviesSerializer
+from rest_framework import viewsets
 from tempfile import NamedTemporaryFile
 
 
@@ -20,14 +21,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class MovieListView(ListAPIView):
-    
     serializer_class = MoviesSerializer
     lookup_field = 'slug'
 
-    def get(self):
-        print(self.request.username)
-        queryset = Movies.objects.order_by('name').filter(user = self.request.user)
-        return Response(queryset, status=status.HTTP_200_OK)
+    def get_queryset(self):
+
+        user = self.request.user
+        return Movies.objects.filter(user = user)
+    
+
+
+# class MovieListView(viewsets.ModelViewSet):
+    
+#     serializer_class = MoviesSerializer
+#     queryset = Movies.objects.all()
+
+#     def get_queryset(self):
+#         return self.queryset.filter(created_by=self.request.user)
+
 
 
 class MoviePostView(APIView):
@@ -36,10 +47,10 @@ class MoviePostView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
     def post(self, request, *args, **kwargs):
-        
+        print(self.request.user.pk)
         filename = request.data['name'] + '.jpg'
         result = urllib.request.urlretrieve(request.data['poster'], filename)
-        data = {'name': request.data['name'], 'year_released': request.data['year_released'], 'poster' : File(open(filename, 'rb'))}
+        data = {'user': self.request.user.pk ,'name': request.data['name'], 'year_released': request.data['year_released'], 'poster' : File(open(filename, 'rb'))}
         movie_serializer = MoviesSerializer(data=data)
 
         if movie_serializer.is_valid():
