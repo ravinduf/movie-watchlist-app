@@ -1,8 +1,10 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.conf import settings
 
 # Create your models here.
 class Movies(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=False, null=False)
     slug = models.SlugField()
     year_released = models.CharField(max_length=4)

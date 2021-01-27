@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework.views import APIView
@@ -19,10 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class MovieListView(ListAPIView):
-    queryset = Movies.objects.order_by('name')
+    
     serializer_class = MoviesSerializer
     lookup_field = 'slug'
-    permission_classes = (permissions.AllowAny, )
+
+    def get(self):
+        print(self.request.username)
+        queryset = Movies.objects.order_by('name').filter(user = self.request.user)
+        return Response(queryset, status=status.HTTP_200_OK)
 
 
 class MoviePostView(APIView):
