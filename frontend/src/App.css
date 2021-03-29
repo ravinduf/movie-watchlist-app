@@ -34,3 +34,11 @@ body{
   border-radius: 10px;
   /* box-shadow:  0 4px 5px 0 rgba(92, 152, 175, 0.2), 0 6px 20px 0 rgba(1, 200, 250, 0.493); */
 }
+
+.form{
+  width: 40%;
+  margin: 50px auto;
+  background: #555555;  
+  color: #e4e2e2;
+  padding: 40px;
+}
