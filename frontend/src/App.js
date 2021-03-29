@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-
 import {MoviesContextProvider} from './MoviesContext.js'
-import Layout from './Layout'
+import MainLayout from './layouts/MainLayout'
+// import MainLayout from './layouts/MainLayout'
 import Home from './pages/Home'
 import CompletedMovies from './pages/CompletedMovies'
 import YetToWatch from './pages/YetToWatch'
@@ -16,7 +16,7 @@ function App() {
   return (
       <MoviesContextProvider>
         <Router>
-        <Layout>
+        <MainLayout>
           
             <Switch>
               
@@ -29,7 +29,7 @@ function App() {
 
             </Switch>
           
-          </Layout>
+          </MainLayout>
         </Router>
       </MoviesContextProvider>
     
