@@ -25,20 +25,9 @@ class MovieListView(ListAPIView):
     lookup_field = 'slug'
 
     def get_queryset(self):
-
         user = self.request.user
         return Movies.objects.filter(user = user)
     
-
-
-# class MovieListView(viewsets.ModelViewSet):
-    
-#     serializer_class = MoviesSerializer
-#     queryset = Movies.objects.all()
-
-#     def get_queryset(self):
-#         return self.queryset.filter(created_by=self.request.user)
-
 
 
 class MoviePostView(APIView):
