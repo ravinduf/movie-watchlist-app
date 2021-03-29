@@ -16,20 +16,29 @@ function App() {
   return (
       <MoviesContextProvider>
         <Router>
-        <MainLayout>
-          
-            <Switch>
-              
-              <Route exact path="/" component={Home} />
-              <Route exact path="/completed-movie-list" component={CompletedMovies} />
-              <Route exact path="/yet-to-watch-list" component={YetToWatch} />
-              <Route exact path="/add-movie" component={AddMovie} />
-              <Route exact path="/sign-in" component={SignIn} />
-              <Route exact path="/sign-up" component={SignUp} />
+          <Switch>
 
-            </Switch>
+            <Route path="user/:path">
+              <UserLayout>
+                <Switch>
+                  <Route exact path="user/sign-in" component={SignIn} />
+                  <Route exact path="user/sign-up" component={SignUp} />
+                </Switch>
+              </UserLayout>
+            </Route>
+
+            <Route path="/">
+              <MainLayout>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/completed-movie-list" component={CompletedMovies} />
+                  <Route exact path="/yet-to-watch-list" component={YetToWatch} />
+                  <Route exact path="/add-movie" component={AddMovie} />
+                </Switch>
+              </MainLayout>
+            </Route>
           
-          </MainLayout>
+          </Switch>
         </Router>
       </MoviesContextProvider>
     
