@@ -3,8 +3,12 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import {MoviesContextProvider} from './contexts/MoviesContext.js'
+import {UserContextProvider} from './contexts/UserContext.js'
+
+
 import MainLayout from './layouts/MainLayout'
 import UserLayout from './layouts/UserLayout'
+
 import Home from './pages/Home'
 import CompletedMovies from './pages/CompletedMovies'
 import YetToWatch from './pages/YetToWatch'
@@ -17,6 +21,7 @@ import Error from './components/Error';
 
 function App() {
   return (
+    <UserContextProvider>
       <MoviesContextProvider>
         <Router>
           <Switch>
@@ -47,6 +52,7 @@ function App() {
           </Switch>
         </Router>
       </MoviesContextProvider>
+    </UserContextProvider>
     
   );
 }
