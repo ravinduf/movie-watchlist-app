@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const UserContext = createContext();
 
-export const UserContextProvider = (prosp) => {
+export const UserContextProvider = (props) => {
   const [user, setUser] = useState();
 
   const userLogin = () => {
