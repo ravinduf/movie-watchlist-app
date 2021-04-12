@@ -1,6 +1,6 @@
 //shows all movies
 import React, { useEffect, useContext } from 'react'
-import { MoviesContext } from '../MoviesContext.js'
+import { MoviesContext } from '../contexts/MoviesContext.js'
 
 import Movies from '../components/Movies';
 

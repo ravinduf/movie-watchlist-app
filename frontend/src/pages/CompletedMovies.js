@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useContext } from 'react'
 
 import Movies from '../components/Movies';
-import { MoviesContext } from '../MoviesContext';
+import { MoviesContext } from '../contexts/MoviesContext';
 
 const CompletedMovies = () => {
     const { movies } = useContext(MoviesContext)

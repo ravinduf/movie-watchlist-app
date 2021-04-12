@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import {MoviesContextProvider} from './MoviesContext.js'
+import {MoviesContextProvider} from './contexts/MoviesContext.js'
 import MainLayout from './layouts/MainLayout'
 import UserLayout from './layouts/UserLayout'
 import Home from './pages/Home'

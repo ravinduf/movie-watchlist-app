@@ -11,17 +11,17 @@ const SignUpForm = () => {
       <Form>
         <Form.Group>
           <Form.Label>Username</Form.Label>
-          <Form.Control type="email" placeholder="Enter Username" />
+          <Form.Control type="email"/>
         </Form.Group>
         
         <Form.Group>
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="email"/>
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" />
         </Form.Group>
         
         <Button variant="primary" type="submit">
