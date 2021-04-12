@@ -14,8 +14,12 @@ export const UserContextProvider = (prosp) => {
 
   }
 
+  const checkUserLogin = () => {
+
+  }
+
   return(
-    <UserContext.Provider value={{userLogin, userLogout}}>
+    <UserContext.Provider value={{userLogin, userLogout, checkUserLogin}}>
       {props.children}
     </UserContext.Provider>
   )
