@@ -60,25 +60,25 @@ const SignUpForm = () => {
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control {...register("username")} type="text"/>
-          <p>{errors.username?.message}</p>
+          <p className="form-error" >{errors.username?.message}</p>
         </Form.Group>
         
         <Form.Group>
           <Form.Label>Email address</Form.Label>
           <Form.Control {...register("email")} type="email" />
-          <p>{errors.email?.message}</p>
+          <p className="form-error" >{errors.email?.message}</p>
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Password</Form.Label>
           <Form.Control {...register("password")} type="password"/>
-          <p>{errors.password?.message}</p>
+          <p className="form-error" >{errors.password?.message}</p>
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control {...register("confirmPassword")} type="password"/>
-          <p>{errors.confirmPassword?.message}</p>
+          <p className="form-error" >{errors.confirmPassword?.message}</p>
         </Form.Group>
         
         <Button variant="primary" type="submit">

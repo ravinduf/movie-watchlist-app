@@ -42,3 +42,7 @@ body{
   color: #e4e2e2;
   padding: 40px;
 }
+
+.form-error{
+  color: #b9a4a4;
+}
