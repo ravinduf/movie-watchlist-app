@@ -2,10 +2,10 @@ const authHeader = () => {
   const token = localStorage.getItem("token");
 
   if (token) {
-    return {Authorization: `Token ${token}`}
+    return  `Token ${token}`
   }
   else {
-    return {}
+    return ``;
   }
 
 }
