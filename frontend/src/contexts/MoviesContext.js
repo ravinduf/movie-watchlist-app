@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
+import authHeader from '../services/authheader';
 
 export const MoviesContext = createContext();
 
@@ -13,8 +14,14 @@ export const MoviesContextProvider = (props) => {
     }
 
     const getMovies = async () => {
+      console.log(authHeader())
         try {
-            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/movielist`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/movielist`, {
+              headers: {
+                "Authorization": authHeader()
+              }
+            }
+            );
             setMovies(res.data)
         }
         catch(err){
