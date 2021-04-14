@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,6 +9,8 @@ import { useHistory } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
+import { UserContext } from '../contexts/UserContext';
 
 const schema = yup.object().shape({
   username: yup
@@ -21,6 +23,9 @@ const schema = yup.object().shape({
 
 
 const SignInForm = () => {
+
+  const {userLogin} = useContext(UserContext);
+
   const history = useHistory();
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
@@ -31,6 +36,8 @@ const SignInForm = () => {
 
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL_LOGIN}/`, userData);
+      console.log(response);
+      userLogin(userData.username, response.data.auth_token);
       history.push('/');
     } catch (error) {
       console.error(error);
