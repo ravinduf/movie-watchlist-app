@@ -23,7 +23,9 @@ const schema = yup.object().shape({
 
 
 const SignInForm = () => {
-
+  console.log(localStorage.getItem('token'))
+  localStorage.removeItem('token')
+  localStorage.removeItem('username')
   const {userLogin} = useContext(UserContext);
 
   const history = useHistory();

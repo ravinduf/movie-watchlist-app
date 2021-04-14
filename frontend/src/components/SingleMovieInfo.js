@@ -3,6 +3,8 @@ import { Container , Row, Col , Button} from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
+import authHeader from '../services/authheader';
+
 const SingleMovieInfo = ({movie}) => {
    
     const [postStatus, setPostStatus] = useState(false)
@@ -17,7 +19,8 @@ const SingleMovieInfo = ({movie}) => {
         try{
             const data = await axios.post(`${process.env.REACT_APP_API_URL}/api/movielist/add-movie/`, form_data, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type': 'multipart/form-data',
+                    "Authorization": authHeader()
                 }
             })
             console.log(data)
