@@ -37,15 +37,15 @@ const SignUpForm = () => {
   })
 
   const onSubmit = async data => {
-    // const {confirmPassword, ...userData} = data;
-    // console.log(userData);
-    const userData = { username: data.username, email: data.email, password: data.password }
+    const {confirmPassword, ...userData} = data;
+    
+    // const userData = { username: data.username, email: data.email, password: data.password }
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL_SIGNUP}`, userData);
       history.push('/');
       history.push('/user/sign-in');
     } catch (error) {
-      
+      console.log(error.response.data)
       if(error.response.data.password){
         alert(`${error.response.data.password}`)
       }
