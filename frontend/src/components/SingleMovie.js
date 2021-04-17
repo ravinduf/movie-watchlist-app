@@ -13,9 +13,6 @@ const SingleMovie = ({movie}) => {
                 <h4>Year released: {movie.year_released}<br/></h4>
                 
                 <h4>Status: &nbsp;{movie.watched ? 'Watched': 'Not yet watched' }</h4>
-                
-                
-                
             </Card.Body>
         </Card>
     )
