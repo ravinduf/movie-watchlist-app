@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
-import authHeader from '../services/authheader';
+import authHeader from '../utils/authheader';
 
 export const MoviesContext = createContext();
 
