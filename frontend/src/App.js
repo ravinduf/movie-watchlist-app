@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect, useContext} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import {MoviesContextProvider} from './contexts/MoviesContext.js'
-import {UserContextProvider} from './contexts/UserContext.js'
+import {MoviesContext} from './contexts/MoviesContext.js'
+
 
 
 import MainLayout from './layouts/MainLayout'
@@ -21,9 +21,11 @@ import Error from './components/Error';
 import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
+  const {getMovies} = useContext(MoviesContext)
+
+  useEffect(getMovies, []);
   return (
-    <UserContextProvider>
-      <MoviesContextProvider>
+   
         <Router>
           <Switch>
 
@@ -52,8 +54,7 @@ function App() {
           
           </Switch>
         </Router>
-      </MoviesContextProvider>
-    </UserContextProvider>
+     
     
   );
 }
