@@ -18,6 +18,7 @@ import SignUp from './pages/SignUp';
 
 import Error from './components/Error';
 
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
   return (
@@ -39,11 +40,11 @@ function App() {
             <Route path="/">
               <MainLayout>
                 <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/completed-movie-list" component={CompletedMovies} />
-                  <Route exact path="/yet-to-watch-list" component={YetToWatch} />
-                  <Route exact path="/add-movie" component={AddMovie} />
-                  <Route exact path="/sign-up" component={SignUp} />
+                  <PrivateRoute exact path="/" component={Home} />
+                  <PrivateRoute exact path="/completed-movie-list" component={CompletedMovies} />
+                  <PrivateRoute exact path="/yet-to-watch-list" component={YetToWatch} />
+                  <PrivateRoute exact path="/add-movie" component={AddMovie} />
+                  <PrivateRoute exact path="/sign-up" component={SignUp} />
                 </Switch>
               </MainLayout>
             </Route>
