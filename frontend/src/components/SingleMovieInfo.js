@@ -3,7 +3,7 @@ import { Container , Row, Col , Button} from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
-import authHeader from '../services/authheader';
+import authHeader from '../utils/authheader';
 
 const SingleMovieInfo = ({movie}) => {
    
