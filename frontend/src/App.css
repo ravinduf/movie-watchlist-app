@@ -46,3 +46,9 @@ body{
 .form-error{
   color: #b9a4a4;
 }
+
+.btn-success{
+  border: 0px !important;
+  border-color: none !important;
+  font-size: 18px;
+}
