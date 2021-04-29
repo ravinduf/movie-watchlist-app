@@ -6,6 +6,7 @@ import logo from '../images/movie-reel-cinema-tool.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
 
 const Header = () => {
+    console.log(isLogin())
     return (
         <div className="d-flex flex-row header bg-primary">
             <div className="m-auto">
@@ -15,8 +16,7 @@ const Header = () => {
                 </div>
 
             </div>
-            {!isLogin ? (null) : 
-                (<Dropdown className="">
+            {isLogin() ? (<Dropdown className="">
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {localStorage.getItem('username')}
                      
@@ -25,7 +25,8 @@ const Header = () => {
                   <Dropdown.Menu>
                       <Dropdown.Item href="/user/sign-in">logout</Dropdown.Item>
                   </Dropdown.Menu>
-                </Dropdown>)}
+                </Dropdown>) : 
+                ("")}
             
 
         </div>
