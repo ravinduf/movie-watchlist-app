@@ -14,7 +14,7 @@ export const MoviesContextProvider = (props) => {
     }
 
     const getMovies = async () => {
-      console.log(authHeader())
+      
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/movielist`, {
               headers: {

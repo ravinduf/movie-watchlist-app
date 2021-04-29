@@ -6,7 +6,7 @@ import logo from '../images/movie-reel-cinema-tool.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
 
 const Header = () => {
-    console.log(isLogin())
+
     return (
         <div className="d-flex flex-row header bg-primary">
             <div className="m-auto">
