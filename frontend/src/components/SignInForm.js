@@ -41,7 +41,6 @@ const SignInForm = () => {
 
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL_LOGIN}/`, userData);
-      console.log(response);
       userLogin(userData.username, response.data.auth_token);
       history.push('/');
     } catch (error) {
