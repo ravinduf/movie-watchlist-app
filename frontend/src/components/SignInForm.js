@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -24,8 +24,11 @@ const schema = yup.object().shape({
 
 const SignInForm = () => {
   console.log(localStorage.getItem('token'))
-  localStorage.removeItem('token')
-  localStorage.removeItem('username')
+  useEffect(() => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('username')
+  })
+  
   const {userLogin} = useContext(UserContext);
 
   const history = useHistory();
@@ -49,7 +52,7 @@ const SignInForm = () => {
   return (
       <Container className="form" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="form-header">SignUp</h3>
-
+      <br/>
       <Form>
 
         <Form.Group>
