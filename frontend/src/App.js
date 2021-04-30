@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import {MoviesContext} from './contexts/MoviesContext.js'
 
-
-
 import MainLayout from './layouts/MainLayout'
 import UserLayout from './layouts/UserLayout'
 
@@ -19,11 +17,18 @@ import SignUp from './pages/SignUp';
 import Error from './components/Error';
 
 import PrivateRoute from './utils/PrivateRoute';
+import isLogin from './utils/isLogin';
 
 function App() {
   const {getMovies} = useContext(MoviesContext)
 
-  useEffect(getMovies, []);
+  // useEffect(() => {
+  //   if(isLogin) {
+  //     getMovies()
+  //   }
+    
+  // });
+  
   return (
    
         <Router>
