@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import axios from 'axios';
 
 export const UserContext = createContext();
 
@@ -9,11 +8,13 @@ export const UserContextProvider = (props) => {
   const userLogin = (username, token) => {
     localStorage.setItem('username', username)
     localStorage.setItem('token', token)
+    setUser(username);
   }
 
   const userLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('token');
+    setUser(null);
   }
 
   const checkUserLogin = () => {

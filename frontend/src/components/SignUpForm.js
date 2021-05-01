@@ -41,7 +41,7 @@ const SignUpForm = () => {
     
     // const userData = { username: data.username, email: data.email, password: data.password }
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL_SIGNUP}`, userData);
+      await axios.post(`${process.env.REACT_APP_API_URL_SIGNUP}`, userData);
       history.push('/');
       history.push('/user/sign-in');
     } catch (error) {

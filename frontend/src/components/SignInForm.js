@@ -33,7 +33,7 @@ const SignInForm = () => {
     setMovies([]);
     localStorage.removeItem('token')
     localStorage.removeItem('username')
-  },[])
+  },[setMovies])
   
 
   const history = useHistory();

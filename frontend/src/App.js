@@ -1,8 +1,8 @@
-import React, {useEffect, useContext} from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import {MoviesContext} from './contexts/MoviesContext.js'
+// import {MoviesContext} from './contexts/MoviesContext.js'
 
 import MainLayout from './layouts/MainLayout'
 import UserLayout from './layouts/UserLayout'
@@ -17,7 +17,7 @@ import SignUp from './pages/SignUp';
 import Error from './components/Error';
 
 import PrivateRoute from './utils/PrivateRoute';
-import isLogin from './utils/isLogin';
+// import isLogin from './utils/isLogin';
 
 function App() {
   // const {getMovies, movies} = useContext(MoviesContext)
