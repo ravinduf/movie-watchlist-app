@@ -5,7 +5,9 @@ import { MoviesContext } from '../contexts/MoviesContext.js'
 import Movies from '../components/Movies';
 
 const Home = () => {
-    const {movies} = useContext(MoviesContext)
+    const {movies, getMovies} = useContext(MoviesContext)
+
+    useEffect(getMovies, [])
 
     return (
         <div>

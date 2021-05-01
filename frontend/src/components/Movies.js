@@ -4,7 +4,7 @@ import SingleMovie from './SingleMovie'
 
 const Movies = ({movies}) => {
 
-    console.log(movies)
+    
 
 
     return (

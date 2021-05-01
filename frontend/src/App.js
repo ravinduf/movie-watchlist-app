@@ -20,12 +20,13 @@ import PrivateRoute from './utils/PrivateRoute';
 import isLogin from './utils/isLogin';
 
 function App() {
-  const {getMovies} = useContext(MoviesContext)
+  // const {getMovies, movies} = useContext(MoviesContext)
 
   // useEffect(() => {
-  //   if(isLogin) {
+  //   if(isLogin()) {
   //     getMovies()
   //   }
+  //   console.log(movies)
     
   // });
   

@@ -11,6 +11,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../contexts/UserContext';
+import { MoviesContext } from '../contexts/MoviesContext';
 
 const schema = yup.object().shape({
   username: yup
@@ -23,13 +24,17 @@ const schema = yup.object().shape({
 
 
 const SignInForm = () => {
+
+  const {userLogin} = useContext(UserContext);
+  const {setMovies} = useContext(MoviesContext);
+
   console.log(localStorage.getItem('token'))
   useEffect(() => {
+    setMovies([]);
     localStorage.removeItem('token')
     localStorage.removeItem('username')
-  })
+  },[])
   
-  const {userLogin} = useContext(UserContext);
 
   const history = useHistory();
   const { register, handleSubmit, formState: { errors } } = useForm({
