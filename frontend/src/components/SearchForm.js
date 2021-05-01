@@ -32,9 +32,6 @@ const SearchForm = () => {
             tempInfo.data.Response === 'True'? 
                     setStatus(status => ({...status, loading: false})) : 
                     setStatus(status => ({...status, msg: 'incorrect title'}))
-            
-            
-
         }
         catch(err){
             console.log(err)
