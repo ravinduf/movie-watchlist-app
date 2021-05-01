@@ -26,7 +26,7 @@ const SearchForm = () => {
     const handleSubmitForm = async (e) => {
         e.preventDefault()
         try{
-            const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}`)
+            const tempInfo = await axios.get(`${process.env.REACT_APP_MOVIES_API_URL}t=${params.title}&y=${params.year}&type=movie`)
             setMovie(tempInfo.data)
 
             tempInfo.data.Response === 'True'? 
