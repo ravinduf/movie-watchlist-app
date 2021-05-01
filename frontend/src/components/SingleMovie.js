@@ -20,7 +20,7 @@ const SingleMovie = ({movie}) => {
 
 const imgStyle = {
     width: '95%',
-    height: '60vh',
+    height: '50vh',
     margin: '4px auto'
 }
 
