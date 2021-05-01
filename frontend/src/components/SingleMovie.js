@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-import { Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap';
+
+import MovieModal from './MovieModal';
 
 const SingleMovie = ({movie}) => {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
     
     return (
-        <Card style={{ width: '18rem', marginTop: '20px'}}>
+        <Card style={{ width: '18rem', marginTop: '20px'}} onClick={handleShow}>
+            <MovieModal show={showModal} hide={handleClose} movie={movie}/>
             <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
             <Card.Body>
                 <Card.Title><h2>{movie.name}</h2></Card.Title>
