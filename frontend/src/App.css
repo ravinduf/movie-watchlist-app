@@ -53,7 +53,7 @@ body{
   font-size: 18px;
 }
 
-.btn-primary{
+.btn-primary, .btn-secondary{
   border: 0px !important;
   border-color: none !important;
 }
