@@ -25,9 +25,6 @@ const MovieModal = ({handleClose, show, movie}) => {
             <Button variant="secondary" onClick={handleClose}> 
               Close
             </Button>
-            <Button variant="primary">
-              Save Changes
-            </Button>
         </Modal.Footer>
       </Modal>
     </div>
