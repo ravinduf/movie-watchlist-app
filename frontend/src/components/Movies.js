@@ -4,9 +4,6 @@ import SingleMovie from './SingleMovie'
 
 const Movies = ({movies}) => {
 
-    
-
-
     return (
         <div className="d-flex flex-row flex-wrap justify-content-around m-5">
            
