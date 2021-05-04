@@ -5,23 +5,23 @@ import { Card } from 'react-bootstrap';
 import MovieModal from './MovieModal';
 
 const SingleMovie = ({movie}) => {
-    const [showModal, setShowModal] = useState(false);
-
-    const handleShow = () => setShowModal(true);
-    const handleClose = () => setShowModal(false);
+    const [show, setShow] = useState(false);
+   
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false); 
     
     return (
-        <Card style={{ width: '18rem', marginTop: '20px'}} onClick={handleShow}>
-            <MovieModal show={showModal} hide={handleClose} movie={movie}/>
-            <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
-            <Card.Body>
-                <Card.Title><h2>{movie.name}</h2></Card.Title>
-                
-                <h4>Year released: {movie.year_released}<br/></h4>
-                
-                <h4>Status: &nbsp;{movie.watched ? 'Watched': 'Not yet watched' }</h4>
-            </Card.Body>
-        </Card>
+      <Card style={{ width: '18rem', marginTop: '20px'}} onClick={handleShow}>
+        <MovieModal show={show} handleClose={handleClose} movie={movie}/>
+        <Card.Img variant="top" src={movie.poster} style={imgStyle}/>
+        <Card.Body>
+          <Card.Title><h2>{movie.name}</h2></Card.Title>
+          
+          <h4>Year released: {movie.year_released}<br/></h4>
+          
+          <h4>Status: &nbsp;{movie.watched ? 'Watched': 'Not yet watched' }</h4>
+        </Card.Body>
+      </Card>
     )
 }
 

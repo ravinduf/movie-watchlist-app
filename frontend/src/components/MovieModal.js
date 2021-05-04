@@ -2,24 +2,35 @@ import React from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import Row from 'react-bootstrap/Row'
-import Container from 'react-bootstrap/Container'
 
-const MovieModal = ({show, hide, movie}) => {
-    console.log(movie)
-    return (
-        <Modal show={show} onhide={hide}>
-            <Container>
-            <h3>Update the {movie.name} status</h3>
-            <Row>
-                <Button>Watched</Button>
-                <Button>Not watched</Button>
-                
-            </Row>
 
-            </Container>
-        </Modal>
-    )
+
+const MovieModal = ({handleClose, show, movie}) => {
+
+  return (
+    <div onClick={e => e.stopPropagation()}>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update the {movie.name} status</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Button>Watched</Button>
+          <Button>Not watched</Button>
+        </Modal.Body>
+
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}> 
+              Close
+            </Button>
+            <Button variant="primary">
+              Save Changes
+            </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+    
+  )
 }
 
 export default MovieModal
