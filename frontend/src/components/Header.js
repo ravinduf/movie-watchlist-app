@@ -18,9 +18,8 @@ const Header = () => {
       </div>
       
       {isLogin() ? (<Dropdown className="">
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="success" id="dropdown-basic" className="header-username">
                 {localStorage.getItem('username')}
-                
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
