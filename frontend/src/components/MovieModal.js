@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal'
 
 
 const MovieModal = ({handleClose, show, movie}) => {
-
+  console.log(movie)
   return (
     <div onClick={e => e.stopPropagation()}>
       <Modal show={show} onHide={handleClose}>
@@ -15,8 +15,10 @@ const MovieModal = ({handleClose, show, movie}) => {
         </Modal.Header>
 
         <Modal.Body>
-          <Button>Watched</Button>
-          <Button>Not watched</Button>
+          { movie.watched ? 
+            (<Button variant="success">Mark as not watched</Button>) : 
+            (<Button variant="warning">Mark as watched</Button>)  
+          }
         </Modal.Body>
 
         <Modal.Footer>
