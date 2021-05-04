@@ -50,6 +50,9 @@ body{
 .btn-success{
   border: 0px !important;
   border-color: none !important;
+}
+
+.header-username{
   font-size: 18px;
 }
 
