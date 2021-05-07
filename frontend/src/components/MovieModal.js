@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
-
+import { MoviesContext } from '../contexts/MoviesContext'
 
 const MovieModal = ({handleClose, show, movie}) => {
+
+  const {updateMovie} = useContext(MoviesContext);
+
   console.log(movie)
+
+  const handleMarkAsWatched = () => {
+    const tempMovie = movie
+    tempMovie.watched = true;
+    updateMovie(tempMovie)
+  }
+
+  const handleMarkAsNotWatched = () => {
+    const tempMovie = movie
+    tempMovie.watched = false;
+    updateMovie(tempMovie)
+  }
+
   return (
     <div onClick={e => e.stopPropagation()}>
       <Modal show={show} onHide={handleClose}>
@@ -16,8 +32,8 @@ const MovieModal = ({handleClose, show, movie}) => {
 
         <Modal.Body>
           { movie.watched ? 
-            (<Button variant="success">Mark as not watched</Button>) : 
-            (<Button variant="warning">Mark as watched</Button>)  
+            (<Button variant="success" onClick={handleMarkAsNotWatched} >Mark as not watched</Button>) : 
+            (<Button variant="warning" onClick={handleMarkAsWatched} >Mark as watched</Button>)  
           }
         </Modal.Body>
 
