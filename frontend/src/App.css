@@ -56,7 +56,7 @@ body{
   font-size: 18px;
 }
 
-.btn-primary, .btn-secondary{
+.btn-primary, .btn-secondary, .btn-warning, .btn-danger{
   border: 0px !important;
   border-color: none !important;
 }

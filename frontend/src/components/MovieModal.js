@@ -28,11 +28,12 @@ const MovieModal = ({handleClose, show, movie}) => {
           <Modal.Title>Update the {movie.name} status</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body className="d-flex flex-row justify-content-around">
           { movie.watched ? 
             (<Button variant="success" onClick={handleMarkAsNotWatched} >Mark as not watched</Button>) : 
             (<Button variant="warning" onClick={handleMarkAsWatched} >Mark as watched</Button>)  
           }
+          <Button variant="danger">Remove from the watchlist</Button>
         </Modal.Body>
 
         <Modal.Footer>
