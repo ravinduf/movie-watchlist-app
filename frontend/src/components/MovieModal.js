@@ -9,8 +9,6 @@ const MovieModal = ({handleClose, show, movie}) => {
 
   const {updateMovie} = useContext(MoviesContext);
 
-  console.log(movie)
-
   const handleMarkAsWatched = () => {
     const tempMovie = movie
     tempMovie.watched = true;

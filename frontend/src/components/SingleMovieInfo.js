@@ -23,7 +23,7 @@ const SingleMovieInfo = ({movie}) => {
                     "Authorization": authHeader()
                 }
             })
-            console.log(data)
+          
             if (data.status === 201) {
                setPostStatus(true)
             }
