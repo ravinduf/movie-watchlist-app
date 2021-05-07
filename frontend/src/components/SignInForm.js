@@ -25,14 +25,12 @@ const schema = yup.object().shape({
 
 const SignInForm = () => {
 
-  const {userLogin} = useContext(UserContext);
+  const {userLogin, userLogout} = useContext(UserContext);
   const {setMovies} = useContext(MoviesContext);
 
-  console.log(localStorage.getItem('token'))
   useEffect(() => {
     setMovies([]);
-    localStorage.removeItem('token')
-    localStorage.removeItem('username')
+    userLogout()
   },[setMovies])
   
 
