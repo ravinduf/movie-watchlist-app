@@ -7,7 +7,7 @@ import { MoviesContext } from '../contexts/MoviesContext'
 
 const MovieModal = ({handleClose, show, movie}) => {
 
-  const {updateMovie} = useContext(MoviesContext);
+  const {updateMovie, deleteMovie} = useContext(MoviesContext);
 
   const handleMarkAsWatched = () => {
     const tempMovie = movie
@@ -19,6 +19,11 @@ const MovieModal = ({handleClose, show, movie}) => {
     const tempMovie = movie
     tempMovie.watched = false;
     updateMovie(tempMovie)
+  }
+
+  const handleDeleteMovie = () => {
+    deleteMovie(movie)
+    handleClose()
   }
 
   return (
@@ -33,7 +38,7 @@ const MovieModal = ({handleClose, show, movie}) => {
             (<Button variant="success" onClick={handleMarkAsNotWatched} >Mark as not watched</Button>) : 
             (<Button variant="warning" onClick={handleMarkAsWatched} >Mark as watched</Button>)  
           }
-          <Button variant="danger">Remove from the watchlist</Button>
+          <Button variant="danger" onClick={handleDeleteMovie}>Remove from the watchlist</Button>
         </Modal.Body>
 
         <Modal.Footer>
