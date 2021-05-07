@@ -39,16 +39,33 @@ export const MoviesContextProvider = (props) => {
           "Authorization": authHeader()
         }
       })
-
       console.log('res')
     }
     catch (err){
       console.log(err);
     }
-
   }
+
+  const deleteMovie = async ( movieToDelete ) => {
+     
+    const tempMovies = movies.filter( movie => movie.id !== movieToDelete.id )
+    setMovies(tempMovies)
+    
+    try {
+      const res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/movielist/delete-movie/${movieToDelete.id}`, {
+        headers: {
+          "Authorization": authHeader()
+        }
+      })
+     
+    }
+    catch (err){
+      console.log(err);
+    }
+  }
+  
   return(
-      <MoviesContext.Provider value={{movies, setMovies, getMovies, updateMovie}}>
+      <MoviesContext.Provider value={{movies, setMovies, getMovies, updateMovie, deleteMovie}}>
           {props.children}
       </MoviesContext.Provider>
   )
