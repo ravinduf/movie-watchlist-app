@@ -7,10 +7,11 @@ export const MoviesContext = createContext();
 export const MoviesContextProvider = (props) => {
   const [movies, setMovies] = useState([]);
 
-  const [ activeState, setActiveState ] = useState({id : 1})
+  const [ navState, setNavState ] = useState({id : 1})
 
-  const handleNavState = (id) => {
-      setActiveState({id: id})
+  const handleNavState = (state) => {
+    sessionStorage.setItem('state', state);
+    setNavState({id: state})
   }
 
   const getMovies = async () => {
@@ -65,8 +66,16 @@ export const MoviesContextProvider = (props) => {
   }
   
   return(
-      <MoviesContext.Provider value={{movies, setMovies, getMovies, updateMovie, deleteMovie}}>
-          {props.children}
+      <MoviesContext.Provider value={{
+        movies, 
+        setMovies, 
+        getMovies, 
+        updateMovie, 
+        deleteMovie,
+        navState,
+        handleNavState,
+      }}>
+        {props.children}
       </MoviesContext.Provider>
   )
 } 
