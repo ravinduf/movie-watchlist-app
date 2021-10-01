@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'storages',
     'corsheaders',
     'movielist.apps.MovielistConfig',
     'rest_framework.authtoken',
@@ -170,3 +171,12 @@ REST_FRAMEWORK = {
 DJOSER = {
     "USER_ID_FIELD": "username"
 }
+
+#S3 Bucket config
+AWS_ACCESS_KEY_ID = env("S3_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("S3_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env("S3_BUCKET_NAME")
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
